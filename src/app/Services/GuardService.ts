@@ -11,6 +11,6 @@ export class GuardService
         // if good return true
         // else false
         // for now always return true
-        return false;
+        return true;
     }
 }
