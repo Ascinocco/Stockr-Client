@@ -7,7 +7,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GuardService } from './Services/GuardService';
 
 // components
-import AuthComponent from './Components/Auth/AuthComponent';
+import { AuthComponent } from './Components/Auth/AuthComponent';
+import { FeedComponent } from './Components/Feed/FeedComponent';
 
 // routes
 import { AppRoutes } from './Routes/Routes';

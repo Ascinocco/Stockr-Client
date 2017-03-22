@@ -1,7 +1,7 @@
-import { Feed } from '../components/feed/feed';
-import { Auth } from '../components/auth/auth';
+import { FeedComponent } from '../Components/Feed/FeedComponent';
+import { AuthComponent } from '../Components/Auth/AuthComponent';
 
 export const AppRoutes: Array<{title: string, component: any, isGuarded: boolean}> = [
-    { title: 'Feed', component: Feed, isGuarded: true },
-    { title: 'Sign in Or Register', component: Auth, isGuarded: false }
+    { title: 'Feed', component: FeedComponent, isGuarded: true },
+    { title: 'Sign in | Register', component: AuthComponent, isGuarded: false }
 ]
