@@ -3,11 +3,14 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// services
+import { GuardService } from './Services/GuardService';
+
 // components
-import { Feed } from './components/feed/feed';
+import AuthComponent from './Components/Auth/AuthComponent';
 
 // routes
-import { AppRoutes } from './routes/routes';
+import { AppRoutes } from './Routes/Routes';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,13 +18,19 @@ import { AppRoutes } from './routes/routes';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Feed;
+  rootPage: any = AuthComponent;
 
   pages: Array<{title: string, component: any, isGuarded: boolean }> = AppRoutes;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public guardService: GuardService) {
     this.initializeApp();
   }
+
+  public isAuthenticated(): boolean
+  {
+    return this.guardService.isAuthenticated();
+  }
+
 
   initializeApp() {
     this.platform.ready().then(() => {

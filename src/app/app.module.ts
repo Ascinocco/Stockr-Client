@@ -2,9 +2,18 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { LocalStorageService } from 'angular-2-local-storage';
 
+// services
+import { AuthService } from './Services/AuthService';
+import { GuardService } from './Services/GuardService';
+import { HttpsService } from './Services/HttpsService';
+import { StockService } from './Services/StockService';
+import { UserService } from './Services/UserService';
+
+
 // components
 import { MyApp } from './app.component';
-import { Feed } from './components/feed/feed';
+import { FeedComponent } from './Components/Feed/FeedComponent';
+import { AuthComponent } from './Components/Auth/AuthComponent';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -12,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    Feed
+    FeedComponent,
+    AuthComponent,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,12 +30,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Feed
+    FeedComponent,
+    AuthComponent,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     LocalStorageService,
+    AuthService,
+    GuardService,
+    HttpsService,
+    StockService,
+    UserService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

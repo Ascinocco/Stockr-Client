@@ -3,9 +3,9 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'feed-component',
-  templateUrl: 'feed.html',
+  templateUrl: 'FeedComponent.html',
 })
-export class Feed {
+export class FeedComponent {
 
   constructor(public navCtrl: NavController) {
     
