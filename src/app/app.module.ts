@@ -1,5 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { LocalStorageService } from 'angular-2-local-storage';
+
+// components
 import { MyApp } from './app.component';
 import { Feed } from './components/feed/feed';
 
@@ -22,6 +25,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    LocalStorageService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
