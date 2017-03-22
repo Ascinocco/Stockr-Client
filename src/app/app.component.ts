@@ -29,7 +29,14 @@ export class MyApp {
 
   public isAuthenticated(): boolean
   {
-    return this.guardService.isAuthenticated();
+    let authorized = this.guardService.isAuthenticated();
+    if (authorized) {
+      this.rootPage = FeedComponent;
+      return true;
+    } else {
+      this.rootPage = AuthComponent;
+      return false;
+    }
   }
 
 
