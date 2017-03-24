@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { LocalStorageService } from 'angular-2-local-storage';
+import { HttpModule } from '@angular/http';
 
 // services
 import { AuthService } from './Services/AuthService';
@@ -27,7 +28,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SearchComponent,
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

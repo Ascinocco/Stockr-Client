@@ -1,5 +1,7 @@
+import 'rxjs/Rx';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'auth-component',
@@ -7,8 +9,11 @@ import { NavController } from 'ionic-angular';
 })
 export class AuthComponent {
 
-  constructor(public navCtrl: NavController) {
-    
+  private http: Http;
+
+  constructor(public navCtrl: NavController, http: Http) {
+    this.http = http;
   }
+
 
 }
