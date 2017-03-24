@@ -1,0 +1,19 @@
+export class User
+{
+    public firstName: string;
+    public lastName: string;
+    public email: string;
+    public password: string;
+
+    constructor(firstName: string, lastName: string, email: string, 
+                password?: string)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+
+        if (password) {
+            this.password = password;
+        }
+    }
+}

@@ -24,12 +24,13 @@ export class AuthComponent
     this.clearForms();
   }
 
-  public signIn(): void
+  public signIn(): any
   {
+
     alert("Signing In!")
   }
 
-  public signUp(): void
+  public signUp(): any
   {
     alert("Signing Up!")
   }
