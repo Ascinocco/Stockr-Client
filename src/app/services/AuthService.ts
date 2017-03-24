@@ -1,6 +1,6 @@
 import 'rxjs/Rx';
 import { User } from '../Models/User';
-import { Http, Headers, Response, Request } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { HttpService } from './HttpService';
 import { Globals } from '../Config/Globals';
 import { Injectable } from '@angular/core';
@@ -30,6 +30,7 @@ export class AuthService
         .map((res: Response) => {
                 let data = res.json();
                 this.storeToken(res.headers);
+                this.storeUserId(res.headers);
                 this.storeUser(data.user);
                 return data;
             });
@@ -43,14 +44,17 @@ export class AuthService
             let data = res.json();
 
             this.storeToken(res.headers);
+            this.storeUserId(res.headers);
             this.storeUser(data.user)
+
+            console.log(res.headers);
 
             return data;
         });
     }
 
     // sign out needs to HttpService 
-    public signOut(): void
+    public signOut(): any
     {
         // using http service instead of http here, because http service automatically
         // attaches headers to request
@@ -58,7 +62,8 @@ export class AuthService
             .map((res) => {
                 console.log('logged out on server?')
                 this.destoryToken();
-                this.removeUser();
+                this.destroyUser();
+                this.destroyUserId();
                 console.log('logged out on client??')
                 return res.json();
             });
@@ -105,7 +110,7 @@ export class AuthService
         console.log('Has been stored')
     }
 
-    private removeUser(): void
+    private destroyUser(): void
     {
         console.log('Removing user');
         console.log(this.localStorage.get('user'));
@@ -128,5 +133,21 @@ export class AuthService
     private destoryToken(): void
     {
         this.localStorage.set('x-access-token', '');
+    }
+
+    public getUserId(): string
+    {
+        return this.localStorage.get('_id').toString();
+    }
+
+    private storeUserId(headers: Headers): void 
+    {
+        const userId = headers.get('_id');
+        this.localStorage.set('_id', userId);
+    }
+
+    private destroyUserId(): void 
+    {
+        this.localStorage.set('_id', '');
     }
 }

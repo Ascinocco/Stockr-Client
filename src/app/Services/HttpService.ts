@@ -19,10 +19,12 @@ export class HttpService
     {
         try {
             const token = this.localStorage.get('x-access-token').toString();
+            const _id = this.localStorage.get('_id').toString();
             headers.append('x-access-token', token);
+            headers.append('_id', _id);
         } catch (err) {
             console.error(err);
-            console.error('No token found');
+            console.error('No token found or no id found');
         }
     }
 
