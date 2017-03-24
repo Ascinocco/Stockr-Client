@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { LocalStorageService } from 'angular-2-local-storage';
+import { LocalStorageModule } from 'angular-2-local-storage';
 import { HttpModule } from '@angular/http';
 
 // services
@@ -29,7 +29,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    LocalStorageModule.withConfig({ prefix: 'todo-it', storageType: 'localStorage' })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +42,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    LocalStorageService,
     AuthService,
     GuardService,
     HttpService,
