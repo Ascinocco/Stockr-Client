@@ -24,9 +24,9 @@ export class AuthService
     }
 
 
-    public signIn(user: User): any
+    public signIn(credentials: Object): any
     {
-        this.http.post(Globals.BASE_URL + "/auth/login", user)
+        this.http.post(Globals.BASE_URL + "/auth/login", credentials)
         .map((res: Response) => {
                 let data = res.json();
                 this.storeToken(res.headers);
@@ -35,11 +35,9 @@ export class AuthService
             });
     }
 
-    public signUp(user: User, confirmPassword: string): any
+    public signUp(registration: Object): any
     {
-        return this.http.post(Globals.BASE_URL + "/auth/register",
-            { user: user, confirmPassword: confirmPassword }
-        )
+        return this.http.post(Globals.BASE_URL + "/auth/register", registration)
             .map((res) => {
             console.log(res);
             let data = res.json();
