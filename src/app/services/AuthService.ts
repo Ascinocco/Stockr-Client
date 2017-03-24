@@ -82,7 +82,18 @@ export class AuthService
 
     public getUser(): Object
     {
-        return this.localStorage.get('user');
+        let user = this.localStorage.get('user');
+        
+        if (user["created_at"]) {
+            delete user["created_at"];
+        }
+
+        if (user["updated_at"]) {
+            delete user["updated_at"];
+        }
+
+        return user;
+
     }
 
     private storeUser(user: User): void
