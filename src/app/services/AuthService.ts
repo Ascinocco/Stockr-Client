@@ -26,8 +26,8 @@ export class AuthService
 
     public signIn(credentials: Object): any
     {
-        this.http.post(Globals.BASE_URL + "/auth/login", credentials)
-        .map((res: Response) => {
+        return this.http.post(Globals.BASE_URL + "/auth/login", credentials)
+            .map((res: Response) => {
                 let data = res.json();
                 this.storeToken(res.headers);
                 this.storeUserId(res.headers);
@@ -39,7 +39,7 @@ export class AuthService
     public signUp(registration: Object): any
     {
         return this.http.post(Globals.BASE_URL + "/auth/register", registration)
-            .map((res) => {
+            .map((res: Response) => {
             console.log(res);
             let data = res.json();
 
@@ -59,12 +59,11 @@ export class AuthService
         // using http service instead of http here, because http service automatically
         // attaches headers to request
         return this.httpService.post(Globals.BASE_URL + "/auth/logout", {})
-            .map((res) => {
-                console.log('logged out on server?')
+            .map((res: Response) => {
                 this.destoryToken();
                 this.destroyUser();
                 this.destroyUserId();
-                console.log('logged out on client??')
+                console.log('logged out')
                 return res.json();
             });
     }
