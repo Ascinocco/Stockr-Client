@@ -9,4 +9,52 @@
 
 <ion-content padding>
   <h3>Sign in | Sign Up</h3>
+
+  <div id="signIn">
+    <h3>Sign In</h3>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="signInEmail"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="signInPassword"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button outline block (click)="signIn();">Sign In</button>
+  </div>
+  <div id="signUp">
+    <h3>Sign Up</h3>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text" [(ngModel)]="signUpFirstName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" [(ngModel)]="signUpLastName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="signUpEmail"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="signUpPassword"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Confirm Password</ion-label>
+        <ion-input type="password" [(ngModel)]="signUpConfirmPassword"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button outline block (click)="signUp()">Sign Up</button>
+  </div>
 </ion-content>

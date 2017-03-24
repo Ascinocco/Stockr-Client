@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 // services
 import { GuardService } from './Services/GuardService';
+import { AuthService } from './Services/AuthService';
 
 // components
 import { AuthComponent } from './Components/Auth/AuthComponent';
@@ -23,7 +24,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, isGuarded: boolean }> = AppRoutes;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public guardService: GuardService) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+              public guardService: GuardService, public authService: AuthService) {
     this.initializeApp();
   }
 
@@ -39,6 +41,10 @@ export class MyApp {
     }
   }
 
+  public signOut(): void
+  {
+    this.authService.signOut();
+  }
 
   initializeApp() {
     this.platform.ready().then(() => {

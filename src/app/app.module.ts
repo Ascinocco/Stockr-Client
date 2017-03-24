@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 // services
 import { AuthService } from './Services/AuthService';
 import { GuardService } from './Services/GuardService';
-import { HttpsService } from './Services/HttpsService';
+import { HttpService } from './Services/HttpService';
 import { StockService } from './Services/StockService';
 import { UserService } from './Services/UserService';
 
@@ -44,9 +44,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LocalStorageService,
     AuthService,
     GuardService,
-    HttpsService,
+    HttpService,
     StockService,
     UserService,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

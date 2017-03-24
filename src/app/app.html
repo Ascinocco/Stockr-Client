@@ -16,6 +16,9 @@
           {{ page.title }}
         </button>
       </div>
+      <button menuClose ion-item *ngIf="this.isAuthenticated()" (click)="this.signOut();">
+        Sign Out
+      </button>
     </ion-list>
   </ion-content>
 
