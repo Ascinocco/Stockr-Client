@@ -31,4 +31,23 @@ export class UserService
                 return data;
             });
     }
+
+    public deleteAccount(): any
+    {
+        return this.httpService.delete(Globals.BASE_URL + "/user/deleteAccount")
+            .map((res) => {
+                let data = res.json();
+
+                console.log('WHAT THE FUCKING FUCK');
+                console.log(data);
+
+                if (data.success) {
+                    this.localStorage.set('user', '');
+                    this.localStorage.set('x-access-token', '');
+                    this.localStorage.set('_id', '');
+                }
+
+                return data;
+            })
+    }
 }

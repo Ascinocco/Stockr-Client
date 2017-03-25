@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../Services/AuthService';
 import { UserService } from '../../Services/UserService';
+import { AuthComponent } from '../Auth/AuthComponent';
 
 @Component({
     selector: 'user-component',
@@ -43,6 +44,18 @@ export class SettingsComponent
                     console.log(res.err);
                 }
             });
+    }
+
+    public deleteAccount(): any
+    {
+        this.userService.deleteAccount()
+            .subscribe((res) => {
+                if (res.success) {
+                    this.navCtrl.push(AuthComponent);
+                } else {
+                    this.updateErrors.push(res.msg);
+                }
+            })
     }
 
     private setForm(): void

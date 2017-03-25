@@ -50,7 +50,7 @@ export class HttpService
     {
         let headers = new Headers();
         this.createAuthHeader(headers);
-        this.http.put(url, data, {
+        return this.http.put(url, data, {
             headers: headers
         });
     }
@@ -59,7 +59,7 @@ export class HttpService
     {
         let headers = new Headers();
         this.createAuthHeader(headers);
-        this.http.patch(url, data, {
+        return this.http.patch(url, data, {
             headers: headers
         });
     }
@@ -68,7 +68,7 @@ export class HttpService
     {
         let headers = new Headers();
         this.createAuthHeader(headers);
-        this.http.delete(url, {
+        return this.http.delete(url, {
             headers: headers
         });
     }
