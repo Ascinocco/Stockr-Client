@@ -84,17 +84,23 @@ export class AuthService
         }
     }
 
-    public getUser(): Object
+    public getUser(): User
     {
-        let user = this.localStorage.get('user');
+        let userData = this.localStorage.get('user');
         
-        if (user["created_at"]) {
-            delete user["created_at"];
+        if (userData["created_at"]) {
+            delete userData["created_at"];
         }
 
-        if (user["updated_at"]) {
-            delete user["updated_at"];
+        if (userData["updated_at"]) {
+            delete userData["updated_at"];
         }
+
+        let user = new User(
+            userData["firstName"],
+            userData["lastName"],
+            userData["email"]
+        )
 
         return user;
 

@@ -16,6 +16,7 @@ import { MyApp } from './app.component';
 import { FeedComponent } from './Components/Feed/FeedComponent';
 import { AuthComponent } from './Components/Auth/AuthComponent';
 import { SearchComponent } from './Components/Search/SearchComponent';
+import { SettingsComponent } from './Components/Settings/SettingsComponent';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FeedComponent,
     AuthComponent,
     SearchComponent,
+    SettingsComponent,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -38,6 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FeedComponent,
     AuthComponent,
     SearchComponent,
+    SettingsComponent,
   ],
   providers: [
     StatusBar,
