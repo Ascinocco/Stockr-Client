@@ -14,6 +14,7 @@ export class SettingsComponent
     public lastName: string;
     public firstName: string;
     public updateErrors: Array<any>;
+    public updateMessages: Array<any>;
 
     public navCtrl: NavController;
     private userService: UserService;
@@ -25,11 +26,23 @@ export class SettingsComponent
         this.userService = userService;
         this.authService = authService;
         this.setForm();
+        this.updateMessages = [];
     }
 
     public update(): any
     {
+        let user: User = new User(this.firstName, this.lastName, this.email);
 
+        this.userService.update(user)
+            .subscribe((res) => {
+                if (res.success) {
+                    this.setForm();
+                    this.updateMessages.push(res.msg);
+                } else {
+                    this.updateErrors.push(res.msg);
+                    console.log(res.err);
+                }
+            });
     }
 
     private setForm(): void
