@@ -38,9 +38,6 @@ export class UserService
             .map((res) => {
                 let data = res.json();
 
-                console.log('WHAT THE FUCKING FUCK');
-                console.log(data);
-
                 if (data.success) {
                     this.localStorage.set('user', '');
                     this.localStorage.set('x-access-token', '');
