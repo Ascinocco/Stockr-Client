@@ -30,7 +30,6 @@ export class AuthService
             .map((res: Response) => {
                 let data = res.json();
                 this.storeToken(res.headers);
-                this.storeUserId(res.headers);
                 this.storeUser(data.user);
                 return data;
             });
@@ -44,7 +43,6 @@ export class AuthService
             let data = res.json();
 
             this.storeToken(res.headers);
-            this.storeUserId(res.headers);
             this.storeUser(data.user)
 
             console.log(res.headers);
@@ -62,7 +60,6 @@ export class AuthService
             .map((res: Response) => {
                 this.destoryToken();
                 this.destroyUser();
-                this.destroyUserId();
                 console.log('logged out')
                 return res.json();
             });
@@ -87,14 +84,6 @@ export class AuthService
     public getUser(): User
     {
         let userData = this.localStorage.get('user');
-        
-        if (userData["created_at"]) {
-            delete userData["created_at"];
-        }
-
-        if (userData["updated_at"]) {
-            delete userData["updated_at"];
-        }
 
         let user = new User(
             userData["firstName"],
@@ -103,7 +92,6 @@ export class AuthService
         )
 
         return user;
-
     }
 
     private storeUser(user: User): void
@@ -138,21 +126,5 @@ export class AuthService
     private destoryToken(): void
     {
         this.localStorage.set('x-access-token', '');
-    }
-
-    public getUserId(): string
-    {
-        return this.localStorage.get('_id').toString();
-    }
-
-    private storeUserId(headers: Headers): void 
-    {
-        const userId = headers.get('_id');
-        this.localStorage.set('_id', userId);
-    }
-
-    private destroyUserId(): void 
-    {
-        this.localStorage.set('_id', '');
     }
 }

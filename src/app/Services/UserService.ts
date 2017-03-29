@@ -34,14 +34,13 @@ export class UserService
 
     public deleteAccount(): any
     {
-        return this.httpService.delete(Globals.BASE_URL + "/user/deleteAccount")
+        return this.httpService.delete(Globals.BASE_URL + "/user/delete")
             .map((res) => {
                 let data = res.json();
 
                 if (data.success) {
                     this.localStorage.set('user', '');
                     this.localStorage.set('x-access-token', '');
-                    this.localStorage.set('_id', '');
                 }
 
                 return data;
