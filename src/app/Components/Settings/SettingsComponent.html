@@ -16,6 +16,12 @@
       </ion-item>
     </ion-list>
 
+    <ion-list *ngIf="updateMessages.length > 0">
+      <ion-item *ngFor="let message of updateMessages">
+        <ion-label> {{ message }} </ion-label>
+      </ion-item>
+    </ion-list>
+
     <ion-list>
         <ion-item>
             <ion-label floating>First Name</ion-label>
