@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User } from '../../Models/User';
 import { AuthService } from '../../Services/AuthService';
 import { NavController } from 'ionic-angular';
 import { FeedComponent } from '../Feed/FeedComponent';
@@ -57,19 +56,15 @@ export class AuthComponent
   {
     this.clearErrors();
 
-    let user: User = new User(
-        this.signUpFirstName,
-        this.signUpLastName,
-        this.signUpEmail,
-        this.signUpPassword
-      );
-
-    let registration: Object = {
-      user: user,
+    let registrationForm: Object = {
+      firstName: this.signUpFirstName,
+      lastName: this.signUpLastName,
+      email: this.signUpEmail,
+      password: this.signUpPassword,
       confirmPassword: this.signUpConfirmPassword
     }
 
-    this.authService.signUp(registration)
+    this.authService.signUp(registrationForm)
       .subscribe((res) => {
         if (res.success) {
           this.clearErrors();
