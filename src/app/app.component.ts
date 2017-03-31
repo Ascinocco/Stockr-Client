@@ -43,7 +43,10 @@ export class MyApp {
 
   public signOut(): void
   {
-    this.authService.signOut();
+    this.authService.signOut()
+    .subscribe((res) => {
+      this.nav.push(AuthComponent);
+    })
   }
 
   initializeApp() {

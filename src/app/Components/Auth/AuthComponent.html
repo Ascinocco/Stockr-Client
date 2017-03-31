@@ -12,6 +12,13 @@
 
   <div id="signIn">
     <h3>Sign In</h3>
+
+    <ion-list *ngIf="signUpErrors.length > 0">
+      <ion-item *ngFor="let error of signUpErrors">
+        <ion-label> {{ error }} </ion-label>
+      </ion-item>
+    </ion-list>
+
     <ion-list>
       <ion-item>
         <ion-label floating>Email</ion-label>
@@ -28,6 +35,13 @@
   </div>
   <div id="signUp">
     <h3>Sign Up</h3>
+    
+    <ion-list *ngIf="signInErrors.length > 0">
+      <ion-item *ngFor="let error of signInErrors">
+        <ion-label> {{ error }} </ion-label>
+      </ion-item>
+    </ion-list>
+
     <ion-list>
       <ion-item>
         <ion-label floating>First Name</ion-label>

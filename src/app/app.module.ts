@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { LocalStorageService } from 'angular-2-local-storage';
+import { LocalStorageModule } from 'angular-2-local-storage';
 import { HttpModule } from '@angular/http';
 
 // services
@@ -16,6 +16,7 @@ import { MyApp } from './app.component';
 import { FeedComponent } from './Components/Feed/FeedComponent';
 import { AuthComponent } from './Components/Auth/AuthComponent';
 import { SearchComponent } from './Components/Search/SearchComponent';
+import { SettingsComponent } from './Components/Settings/SettingsComponent';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,10 +27,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FeedComponent,
     AuthComponent,
     SearchComponent,
+    SettingsComponent,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    LocalStorageModule.withConfig({ prefix: 'todo-it', storageType: 'localStorage' })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,11 +40,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FeedComponent,
     AuthComponent,
     SearchComponent,
+    SettingsComponent,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    LocalStorageService,
     AuthService,
     GuardService,
     HttpService,

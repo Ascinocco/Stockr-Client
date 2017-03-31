@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="text-align: right;">Stockr</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>Account Info</h1>
+
+    <ion-list *ngIf="updateErrors.length > 0">
+      <ion-item *ngFor="let error of updateErrors">
+        <ion-label> {{ error }} </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="updateMessages.length > 0">
+      <ion-item *ngFor="let message of updateMessages">
+        <ion-label> {{ message }} </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input type="text" [(ngModel)]="firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input type="text" [(ngModel)]="lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button outline block (click)="update();">Update</button>
+    <br>
+    <br>
+    <button ion-button outline block (click)="deleteAccount();" color="danger">Delete Account</button>
+</ion-content>
