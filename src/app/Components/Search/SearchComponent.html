@@ -8,5 +8,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Search...</h3>
+  <h3>Search Stocks</h3>
+  <ion-row>
+    <ion-input type="text" placeholder="Type Stock Symbol Here"></ion-input>
+    <button ion-button class="customButton" (click)="searchStock()"> <ion-icon name="search"> </ion-icon></button>
+  </ion-row>
+  <ion-label></ion-label>
+  <!-- search results display -->
+  <ion-row>
+    <ion-label>Stock Symbol </ion-label>
+    <ion-label>Company Name </ion-label>
+    <ion-label>Price</ion-label>
+    <button ion-button color="default" outline round> 
+  <ion-icon name="information-circle"> Details</ion-icon> 
+  </button>
+  </ion-row>
+
+  <button ion-button class="customButton"><ion-icon name="add-circle"> WATCHLIST</ion-icon></button>
+
 </ion-content>

@@ -23,7 +23,7 @@
 
           <ion-list *ngIf="signUpErrors.length > 0">
             <ion-item *ngFor="let error of signUpErrors">
-              <ion-label> {{ error }} </ion-label>
+              <ion-label color="danger"> {{ error }} </ion-label>
             </ion-item>
           </ion-list>
 
