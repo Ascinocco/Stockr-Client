@@ -1,72 +1,84 @@
-
 <ion-content>
   <div class="mainContainer">
     <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+      <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-  </ion-navbar>
-</ion-header>
+      </ion-navbar>
+    </ion-header>
 
-  <div class="header-content">
-    <p id="headerInfo">Welcome to</p>
-    <h1 id="landingPageTitle">StockR</h1>
-  <button ion-button class="customButton" (click)="showLoginForm=true; showRegisterForm=false" >Login</button>
-  <button ion-button class="customButton" (click)="showRegisterForm=true; showLoginForm=false" >Register</button>
-     </div>
+    <div class="header-content">
+      <p id="headerInfo">Welcome to</p>
+      <h1 id="landingPageTitle">StockR</h1>
+      <button ion-button class="customButton" (click)="showSignInForm=true; showSignUpForm=false">Sign In</button>
+      <button ion-button class="customButton" (click)="showSignUpForm=true; showSignInForm=false">Register</button>
+    </div> 
 
-<!-- Register template --> 
-<div class="formWrapper" *ngIf="showRegisterForm">
-  <ion-card>
-    <div class="formContainer">
-<h2 id="formTitle"> Register </h2>
-   <ion-label>First Name </ion-label>
-   <ion-input type="text" class="inputBox"></ion-input>
+     <!-- Register template -->
+    <div class="formWrapper" *ngIf="showSignUpForm">
+      <ion-card>
+        <div class="formContainer">
+          <h2 id="formTitle"> Sign Up </h2>
 
-   <ion-label>Last Name </ion-label>
-   <ion-input type="text" class="inputBox" ></ion-input>
+          <ion-list *ngIf="signUpErrors.length > 0">
+            <ion-item *ngFor="let error of signUpErrors">
+              <ion-label> {{ error }} </ion-label>
+            </ion-item>
+          </ion-list>
 
-   <ion-label>Email </ion-label>
-   <ion-input type="email" class="inputBox"></ion-input>
+          <ion-label>First Name </ion-label>
+          <ion-input type="text" class="inputBox" [(ngModel)]="signUpFirstName"></ion-input>
 
-   <ion-label>Password </ion-label>
-   <ion-input type="password" class="inputBox"></ion-input>
+          <ion-label>Last Name </ion-label>
+          <ion-input type="text" class="inputBox" [(ngModel)]="signUpLastName"></ion-input>
 
-   <ion-label>Confirm Password </ion-label>
-   <ion-input type="password" class="inputBox"></ion-input>
+          <ion-label>Email </ion-label>
+          <ion-input type="email" class="inputBox" [(ngModel)]="signUpEmail"></ion-input>
 
-<button ion-button class="customButton"> Register </button>
-<button ion-button color="danger" (click)="showRegisterForm=false"> Cancel </button>
-</div>
-  </ion-card>
-</div>
+          <ion-label>Password </ion-label>
+          <ion-input type="password" class="inputBox" [(ngModel)]="signUpPassword"></ion-input>
 
-<!-- Login template -->
-  <div class="formWrapper" *ngIf="showLoginForm" >
-  <ion-card>
-    <div class="formContainer">
-  <h2 id="formTitle">Login </h2>
+          <ion-label>Confirm Password </ion-label>
+          <ion-input type="password" class="inputBox" [(ngModel)]="signUpConfirmPassword"></ion-input>
 
-  <ion-label>Email </ion-label>
-  <ion-input type="email" class="inputBox"></ion-input>
+          <button ion-button class="customButton" (click)="signUp()"> Register </button>
+          <button ion-button color="danger" (click)="showSignUpForm=false"> Cancel </button>
+        </div>
+      </ion-card>
+    </div>
 
-  <ion-label>Password </ion-label>
-  <ion-input type="password" class="inputBox"></ion-input>
+     <!-- Login template --> 
+    <div class="formWrapper" *ngIf="showSignInForm">
+      <ion-card>
+        <div class="formContainer">
+          <h2 id="formTitle">Sign In </h2>
 
-<button ion-button class="customButton"> Login </button>
-<button ion-button color="danger" (click)="showLoginForm=false"> Cancel </button>
-    </div> <!-- end of formContainer-->
-  </ion-card>
-</div> <!-- end of formWrapper-->
-</div><!-- end of mainContainer -->
-</ion-content>
+          <ion-list *ngIf="signInErrors.length > 0">
+            <ion-item *ngFor="let error of signInErrors">
+              <ion-label> {{ error }} </ion-label>
+            </ion-item>
+          </ion-list>
+
+          <ion-label>Email </ion-label>
+          <ion-input type="email" class="inputBox" [(ngModel)]="signInEmail"></ion-input>
+
+          <ion-label>Password </ion-label>
+          <ion-input type="password" class="inputBox" [(ngModel)]="signInPassword"></ion-input>
+
+          <button ion-button class="customButton" (click)="signIn()"> Sign In </button>
+          <button ion-button color="danger" (click)="showSignInForm=false"> Cancel </button>
+        </div> <!-- end of formContainer -->
+      </ion-card>
+    </div> <!-- end of formWrapper -->
+  </div> <!-- end of mainContainer -->
+</ion-content> 
 
 
 
 
-<!--
-  <ion-header>
+
+ <!--  <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
