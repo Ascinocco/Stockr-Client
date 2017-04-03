@@ -3,6 +3,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
 
+/**
+ * TODO: Include global base URL here so that I don't have to send it in from every AuthService.ts
+ * instead I can just pass in the URI 
+ * 
+ * @export
+ * @class HttpService
+ */
+
 @Injectable()
 export class HttpService
 {
