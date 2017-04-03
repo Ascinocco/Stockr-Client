@@ -23,15 +23,31 @@ export class Stock
     public changeFromThisWeeksLowInPercent: string;
     public changeFromThisWeeksLowInDecimal: string;
 
-    constructor(symbol: string, name: string, askingPrice: string)
+    constructor(symbol: string, name: string, askingPrice: string, todaysHighestBid: string,
+                todaysLowestBid: string, changeInPercent: string, lastTrade: string, thisWeeksHighestPrice: string,
+                thisWeeksLowestPrice: string, earningsPerShare: string, weeksRange: string, changeFromThisWeeksHighInPercent: string,
+                changeFromThisWeeksHighInDecimal: string, changeFromThisWeeksLowInPercent: string, changeFromThisWeeksLowInDecimal: string)
     {
         this.symbol = symbol;
         this.name = name;
         this.askingPrice = askingPrice;
-    }
 
-    public getDetails(): void
-    {
+        this.todaysHighestBid = todaysHighestBid;
+        this.todaysLowestBid = todaysLowestBid;
 
+        this.changeInPercent = changeInPercent;
+
+        this.lastTrade = lastTrade;
+        this.thisWeeksHighestPrice = thisWeeksHighestPrice;
+        this.thisWeeksLowestPrice = thisWeeksLowestPrice;
+
+        this.earningsPerShare = earningsPerShare;
+        this.weeksRange = weeksRange;
+
+        this.changeFromThisWeeksHighInPercent = changeFromThisWeeksHighInPercent;
+        this.changeFromThisWeeksHighInDecimal = changeFromThisWeeksHighInDecimal;
+
+        this.changeFromThisWeeksLowInPercent = changeFromThisWeeksLowInPercent;
+        this.changeFromThisWeeksLowInDecimal = changeFromThisWeeksLowInDecimal;
     }
 }
