@@ -23,31 +23,41 @@ export class Stock
     public changeFromThisWeeksLowInPercent: string;
     public changeFromThisWeeksLowInDecimal: string;
 
-    constructor(symbol: string, name: string, askingPrice: string, todaysHighestBid: string,
-                todaysLowestBid: string, changeInPercent: string, lastTrade: string, thisWeeksHighestPrice: string,
-                thisWeeksLowestPrice: string, earningsPerShare: string, weeksRange: string, changeFromThisWeeksHighInPercent: string,
-                changeFromThisWeeksHighInDecimal: string, changeFromThisWeeksLowInPercent: string, changeFromThisWeeksLowInDecimal: string)
+    /**
+     * Creates an instance of Stock.
+     * @param {JSON} stockData the data required to build a stock 
+     * 
+     * @memberOf Stock
+     */
+    constructor(stockData)
     {
-        this.symbol = symbol;
-        this.name = name;
-        this.askingPrice = askingPrice;
+        try {
 
-        this.todaysHighestBid = todaysHighestBid;
-        this.todaysLowestBid = todaysLowestBid;
+            this.symbol = stockData.SYMBOL;
+            this.name = stockData.NAME;
+            this.askingPrice = stockData.ASKING_PRICE;
 
-        this.changeInPercent = changeInPercent;
+            this.todaysHighestBid = stockData.TODAYS_HIGHEST_BID;
+            this.todaysLowestBid = stockData.TODAYS_LOWEST_BID;
 
-        this.lastTrade = lastTrade;
-        this.thisWeeksHighestPrice = thisWeeksHighestPrice;
-        this.thisWeeksLowestPrice = thisWeeksLowestPrice;
+            this.changeInPercent = stockData.CHANGE_IN_PERCENT;
 
-        this.earningsPerShare = earningsPerShare;
-        this.weeksRange = weeksRange;
+            this.lastTrade = stockData.LAST_TRADE;
+            this.thisWeeksHighestPrice = stockData.THIS_WEEKS_HIGHEST_PRICE;
+            this.thisWeeksLowestPrice = stockData.THIS_WEEKS_LOWEST_PRICE;
 
-        this.changeFromThisWeeksHighInPercent = changeFromThisWeeksHighInPercent;
-        this.changeFromThisWeeksHighInDecimal = changeFromThisWeeksHighInDecimal;
+            this.earningsPerShare = stockData.EARNINGS_PER_SHARE;
+            this.weeksRange = stockData.WEEKS_RANGE;
 
-        this.changeFromThisWeeksLowInPercent = changeFromThisWeeksLowInPercent;
-        this.changeFromThisWeeksLowInDecimal = changeFromThisWeeksLowInDecimal;
+            this.changeFromThisWeeksHighInPercent = stockData.CHANGE_FROM_THIS_WEEKS_HIGH_IN_PERCENT;
+            this.changeFromThisWeeksHighInDecimal = stockData.CHANGE_FROM_THIS_WEEKS_HIGH_IN_DECIMAL;
+
+            this.changeFromThisWeeksLowInPercent = stockData.CHANGE_FROM_THIS_WEEKS_LOW_IN_PERCENT;
+            this.changeFromThisWeeksLowInDecimal = stockData.CHANGE_FROM_THIS_WEEKS_LOW_IN_DECIMAL;
+        } catch(err) {
+            console.log("COULD NOT CREATE STOCK!!!!");
+            console.log("DID YOU ENTER ALL REQUIRED STOCK DATA? SEE STOCK CONSTRUCTOR");
+            console.log(err);
+        }
     }
 }
