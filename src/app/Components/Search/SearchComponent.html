@@ -10,8 +10,8 @@
 <ion-content padding>
   <h3>Search Stocks</h3>
   <ion-row>
-    <ion-input type="text" placeholder="Type Stock Symbol Here"></ion-input>
-    <button ion-button class="customButton" (click)="searchStock()"> <ion-icon name="search"> </ion-icon></button>
+    <ion-input type="text" placeholder="Type Stock Symbol Here" [(ngModel)]="symbol"></ion-input>
+    <button ion-button class="customButton" (click)="search()"> <ion-icon name="search"> </ion-icon></button>
   </ion-row>
   <ion-label></ion-label>
   <!-- search results display -->
