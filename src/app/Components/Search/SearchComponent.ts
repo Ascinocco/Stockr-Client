@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Stock } from '../../Models/Stock';
 import { NavController } from 'ionic-angular';
 import { StockService } from '../../Services/StockService';
 
@@ -13,6 +14,8 @@ export class SearchComponent
 
   public symbol: string;
   public searchErrors: Array<any>;
+
+  public stockResult: Stock;
 
   constructor(navCtrl: NavController, stockService: StockService) 
   {
@@ -31,8 +34,8 @@ export class SearchComponent
       .subscribe((res) => {
         if (res.success) {
           this.clearErrors();
-          this.clearSearchBar();
-          console.log(res);
+          this.stockResult = new Stock(res.jsonResults[0]);
+          console.log( this.stockResult.name);
         }
         else {
         this.searchErrors.push(res.msg);
