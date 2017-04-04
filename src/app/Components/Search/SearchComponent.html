@@ -13,15 +13,39 @@
     <ion-input type="text" placeholder="Type Stock Symbol Here" [(ngModel)]="symbol"></ion-input>
     <button ion-button class="customButton" (click)="search()"> <ion-icon name="search"> </ion-icon></button>
   </ion-row>
-  <ion-label></ion-label>
+  <ion-list *ngIf="searchErrors.length > 0">
+    <ion-item *ngFor="let error of searchErrors"> {{ error }} </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="messages.length > 0">
+  <ion-item *ngFor="let message of messages"> {{ message }} </ion-item>
+  </ion-list>
   <!-- search results display -->
   <ion-row *ngIf="stockResult">
     <ion-label> {{stockResult.symbol}} </ion-label>
-    <ion-label> {{stockResult.name}}  </ion-label>
+    <ion-label> {{stockResult.name}} </ion-label>
     <ion-label> {{stockResult.askingPrice}} </ion-label>
     <button ion-button color="default" outline round> 
-  <ion-icon name="information-circle"> Details</ion-icon> 
+  <ion-icon name="information-circle" (click)="displayDetails()"> Details</ion-icon> 
   </button>
-  <button ion-button class="customButton"><ion-icon name="add-circle"> WATCHLIST</ion-icon></button>
+    <button ion-button class="customButton" (click)="add()"><ion-icon name="add-circle"> WATCHLIST</ion-icon></button>
+  </ion-row>
+  <ion-row *ngIf="showDetails">
+    <ion-label> {{ stockResult.symbol }} </ion-label>
+    <ion-label> {{ stockResult.name }} </ion-label>
+    <ion-label> {{ stockResult.askingPrice }} </ion-label>
+    <ion-label> {{ stockResult.todaysHighestBid }} </ion-label>
+    <ion-label> {{ stockResult.todaysLowestBid }} </ion-label>
+    <ion-label> {{ stockResult.changeInPercent }} </ion-label>
+    <ion-label> {{ stockResult.lastTrade }} </ion-label>
+    <ion-label> {{ stockResult.thisWeeksHighestPrice }} </ion-label>
+    <ion-label> {{ stockResult.thisWeeksLowestPrice }} </ion-label>
+    <ion-label> {{ stockResult.earningsPerShare }} </ion-label>
+    <ion-label> {{ stockResult.weeksRange }} </ion-label>
+    <ion-label> {{ stockResult.changeFromThisWeeksHighInPercent }} </ion-label>
+    <ion-label> {{ stockResult.changeFromThisWeeksHighInDecimal }} </ion-label>
+    <ion-label> {{ stockResult.changeFromThisWeeksLowInPercent }} </ion-label>
+    <ion-label> {{ stockResult.changeFromThisWeeksLowInDecimal }} </ion-label>
+    <button ion-button class="customButton" (click)="hideDetails() "> HIDE </button>
   </ion-row>
 </ion-content>

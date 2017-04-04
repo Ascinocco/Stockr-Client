@@ -13,9 +13,13 @@ export class SearchComponent
   public navCtrl: NavController;
 
   public symbol: string;
-  public searchErrors: Array<any>;
+  public searchErrors: Array<string>;
+
+  public messages : Array<string>;
 
   public stockResult: Stock;
+
+  public showDetails: Boolean;
 
   constructor(navCtrl: NavController, stockService: StockService) 
   {
@@ -24,6 +28,8 @@ export class SearchComponent
     this.symbol = "";
     this.clearSearchBar();
     this.clearErrors();
+    this.clearMessages();
+    this.hideDetails();
   }
 
   public search(): any
@@ -35,7 +41,7 @@ export class SearchComponent
         if (res.success) {
           this.clearErrors();
           this.stockResult = new Stock(res.jsonResults[0]);
-          console.log( this.stockResult.name);
+          console.log(this.stockResult.name);
         }
         else {
         this.searchErrors.push(res.msg);
@@ -44,13 +50,43 @@ export class SearchComponent
       });
   }
 
-  private clearSearchBar(): void
+  public add(): any
   {
-    this.symbol="";
+    this.clearErrors();
+
+    this.stockService.add(this.stockResult.symbol)
+      .subscribe((res) => {
+        if (res.success) {
+         this.messages.push(res.msg);
+        }
+        else {
+        this.searchErrors.push(res.msg);
+        }
+      })
   }
 
-  private clearErrors():void
+  private clearSearchBar(): void
+  {
+    this.symbol = "";
+  }
+
+  private clearErrors(): void
   {
     this.searchErrors = [];
+  }
+
+  private clearMessages(): void
+  {
+    this.messages = [];
+  }
+
+  public displayDetails(): void
+  {
+    this.showDetails = true;
+  }
+
+  public hideDetails(): void
+  {
+    this.showDetails = false;
   }
 }
