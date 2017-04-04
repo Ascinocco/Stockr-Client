@@ -45,7 +45,7 @@ export class StockService
 
     public remove(symbol: string): any
     {
-        this.httpService.post(Globals.BASE_URL + '/stocks/remove', { symbol: symbol })
+        return this.httpService.post(Globals.BASE_URL + '/stocks/remove', { symbol: symbol })
             .map((res: Response) => {
                 let data = res.json();
                 return data;
