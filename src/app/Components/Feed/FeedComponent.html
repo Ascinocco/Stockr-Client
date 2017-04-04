@@ -9,4 +9,75 @@
 
 <ion-content padding>
   <h3>Feed</h3>
+
+  <ion-list *ngIf="errorList.length > 0">
+    <ion-item *ngFor="let error of errorList" color="danger">
+      {{ error }}
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="feedList.length > 0 && displayStockList === true && displayStockDetails === false">
+    <ion-card *ngFor="let stock of feedList">
+      <ion-card-content>
+        {{ stock.symbol }} | {{ stock.name }} | {{ stock.askingPrice }} || 
+        <button ion-button (click)="displayDetails(stock)">View Details</button> || 
+        <button ion-button (click)="removeStockFromWatchList(stock.symbol)">Remove Stock</button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+<ion-card *ngIf="displayStockList === false && displayStockDetails === true">
+  <ion-card-content>
+    <ion-item>
+      {{ currentStock.symbol }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.name }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.askingPrice }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.todaysHighestBid }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.todaysLowestBid }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.changeInPercent }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.lastTrade }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.thisWeeksHighestPrice }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.thisWeeksLowestPrice }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.earningsPerShare }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.weeksRange }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.changeFromThisWeeksHighInPercent }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.changeFromThisWeeksHighInDecimal }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.changeFromThisWeeksLowInPercent }}
+    </ion-item>
+    <ion-item>
+      {{ currentStock.changeFromThisWeeksLowInDecimal }}
+    </ion-item>
+
+    <button ion-button (click)="removeStockFromWatchList(currentStock.symbol)" color="danger">Remove Stock</button>
+    <button ion-button (click)="hideDetails()">Back To Feed</button>
+  </ion-card-content>
+</ion-card>
+
+
 </ion-content>

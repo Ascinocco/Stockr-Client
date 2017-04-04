@@ -14,18 +14,29 @@ export class FeedComponent
 
   public feedList: Array<Stock>;
   public currentStock: Stock;
+  public errorList: Array<string>;
+  public messageList: Array<string>;
+
+  public displayStockList: Boolean;
+  public displayStockDetails: Boolean;
 
   constructor(navCtrl: NavController, stockService: StockService) 
   {
     this.navCtrl = navCtrl;
     this.stockService = stockService;
     this.initFeedList();
+    this.initErrorList();
+    this.initMessageList();
     this.getFeed();
+    this.displayStockList = true;
+    this.displayStockDetails = false;
   }
 
   public getFeed(): void
   {
     this.initFeedList();
+    this.initErrorList();
+    this.initMessageList();
 
     this.stockService.getFeed()
       .subscribe((res) => {
@@ -37,19 +48,38 @@ export class FeedComponent
           }
 
         } else {
-          console.log(res);
+          this.errorList.push(res.msg);
         }
       });
   }
 
-  public displayFeed(): void
+  public displayDetails(stock): void
   {
+    this.displayStockList = false;
+    this.displayStockDetails = true;
 
+    this.currentStock = stock;
   }
 
-  public removeStockFromWatchList(): void
+  public hideDetails(): void
   {
+    this.displayStockList = true;
+    this.displayStockDetails = false;
+  }
 
+  public removeStockFromWatchList(symbol: string): void
+  {
+    this.stockService.remove(symbol)
+      .subscribe((res) => {
+        if (res.success) {
+          this.getFeed();
+          this.messageList.push(res.msg);
+
+        } else {
+          this.getFeed();
+          this.errorList.push(res.msg);
+        }
+      });
   }
 
   private initFeedList(): void
@@ -57,4 +87,13 @@ export class FeedComponent
     this.feedList = [];
   }
 
+  private initErrorList(): void
+  {
+    this.errorList = [];
+  }
+
+  private initMessageList(): void
+  {
+    this.messageList = [];
+  }
 }
