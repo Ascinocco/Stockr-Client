@@ -1,9 +1,8 @@
 import 'rxjs/Rx';
-import { Stock } from '../Models/Stock';
 import { Injectable } from '@angular/core';
 import { Globals } from '../Config/Globals';
 import { HttpService } from '../Services/HttpService';
-import { Http, Response } from '@angular/http';
+import { Response } from '@angular/http';
 
 
 @Injectable()
