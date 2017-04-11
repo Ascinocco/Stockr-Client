@@ -4,27 +4,26 @@ import { NavController } from 'ionic-angular';
 import { StockService } from '../../Services/StockService';
 
 @Component({
-  selector: 'search-component',
+  selector   : 'search-component',
   templateUrl: 'SearchComponent.html',
 })
 export class SearchComponent 
 {
-  private stockService: StockService;
   public navCtrl: NavController;
+  private stockService: StockService;
 
   public symbol: string;
-  public searchErrors: Array<string>;
+  public stockResult: Stock;
 
   public messages : Array<string>;
-
-  public stockResult: Stock;
+  public errorList: Array<string>;
 
   public showDetails: Boolean;
 
   constructor(navCtrl: NavController, stockService: StockService) 
   {
-    this.stockService = stockService;
     this.navCtrl = navCtrl;
+    this.stockService = stockService;
     this.symbol = "";
     this.clearSearchBar();
     this.clearErrors();
@@ -44,7 +43,7 @@ export class SearchComponent
           console.log(this.stockResult.name);
         }
         else {
-        this.searchErrors.push(res.msg);
+        this.errorList.push(res.msg);
         console.log('Error Found in searching', this.symbol);
         }
       });
@@ -60,7 +59,7 @@ export class SearchComponent
          this.messages.push(res.msg);
         }
         else {
-        this.searchErrors.push(res.msg);
+        this.errorList.push(res.msg);
         }
       })
   }
@@ -72,7 +71,7 @@ export class SearchComponent
 
   private clearErrors(): void
   {
-    this.searchErrors = [];
+    this.errorList = [];
   }
 
   private clearMessages(): void
