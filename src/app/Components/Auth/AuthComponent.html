@@ -13,9 +13,9 @@
       <h1 id="landingPageTitle">StockR</h1>
       <button ion-button class="customButton" (click)="showSignInForm=true; showSignUpForm=false">Sign In</button>
       <button ion-button class="customButton" (click)="showSignUpForm=true; showSignInForm=false">Register</button>
-    </div> 
+    </div>
 
-     <!-- Register template -->
+    <!-- Register template -->
     <div class="formWrapper" *ngIf="showSignUpForm">
       <ion-card>
         <div class="formContainer">
@@ -42,13 +42,15 @@
           <ion-label>Confirm Password </ion-label>
           <ion-input type="password" class="inputBox" [(ngModel)]="signUpConfirmPassword"></ion-input>
 
+          <ion-row padding-top>
           <button ion-button class="customButton" (click)="signUp()"> Register </button>
           <button ion-button color="danger" (click)="showSignUpForm=false"> Cancel </button>
+          </ion-row>
         </div>
       </ion-card>
     </div>
 
-     <!-- Login template --> 
+    <!-- Login template -->
     <div class="formWrapper" *ngIf="showSignInForm">
       <ion-card>
         <div class="formContainer">
@@ -66,19 +68,24 @@
           <ion-label>Password </ion-label>
           <ion-input type="password" class="inputBox" [(ngModel)]="signInPassword"></ion-input>
 
-          <button ion-button class="customButton" (click)="signIn()"> Sign In </button>
-          <button ion-button color="danger" (click)="showSignInForm=false"> Cancel </button>
-        </div> <!-- end of formContainer -->
+          <ion-row padding-top>
+            <button ion-button class="customButton" (click)="signIn()"> Sign In </button>
+            <button ion-button color="danger" (click)="showSignInForm=false"> Cancel </button>
+          </ion-row>
+        </div>
+        <!-- end of formContainer -->
       </ion-card>
-    </div> <!-- end of formWrapper -->
-  </div> <!-- end of mainContainer -->
-</ion-content> 
+    </div>
+    <!-- end of formWrapper -->
+  </div>
+  <!-- end of mainContainer -->
+</ion-content>
 
 
 
 
 
- <!--  <ion-header>
+<!--  <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
