@@ -1,15 +1,17 @@
-.mainContainer{
--webkit-background-size: cover;
+.mainContainer {
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   background-color: #272B30;
 }
+
 
 /** custom Navbar Style **/
 
 .toolbar-background-md {
   background: transparent;
 }
+
 
 /** Header Customer Style **/
 
@@ -18,27 +20,97 @@
   color: white;
 }
 
-#landingPageTitle{
+#landingPageTitle {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 60px;
 }
 
-#headerInfo, #formTitle{
+#headerInfo,
+#formTitle {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
   font-size: 20px;
 }
 
 /** Custom Buttons **/
-.customButton{
-    background-color:#0c12b5;
-    color: white;
-    text-align: center;
+
+.customButton {
+  background-color: #0c12b5;
+  color: white;
+  text-align: center;
 }
+
 
 /** Form Container **/
 
+.formContainer{
+	 border: 1px solid #0c0d0e;
+    border-radius: 4px;
+    background-color: #1c1e22;
+}
+
+#formTitle{
+    font-size: 35px;
+    line-height: inherit;
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inputBox{
+    color: black;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #000000;
+    border-radius: 4px;
+   
+    
+}
+.mainContainer {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-color: #272B30;
+}
+
+
+/** custom Navbar Style **/
+
+.toolbar-background-md {
+  background: transparent;
+}
+
+
+/** Header Customer Style **/
+
+.header-content {
+  text-align: center;
+  color: white;
+}
+
+#landingPageTitle {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 60px;
+}
+
+#headerInfo,
+#formTitle {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+}
+
+/** Custom Buttons **/
+
+.customButton {
+  background-color: #0c12b5;
+  color: white;
+  text-align: center;
+}
+
+
+/** Form Container **/
 
 .formContainer{
 	 border: 1px solid #0c0d0e;
