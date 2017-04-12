@@ -1,4 +1,11 @@
-/** Account Settings **/
+/**
+* App : $tockR
+* File Name: SettingComponent.scss
+* Description : This is the custom stylesheet for Setting Component.
+**/
+
+
+/** Account Settings Style **/
 
 .customTitle {
   color: white;
@@ -7,8 +14,7 @@
 }
 
 .formContainer {
-    border: 1px solid white;
-    
+  border: 1px solid white;
 }
 
 .inputBox {
@@ -22,5 +28,4 @@
 
 .customLabel {
   color: #1aa3ff;
-  
 }

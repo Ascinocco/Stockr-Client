@@ -1,3 +1,10 @@
+/**
+* App : $tockR
+* File Name: SearchComponent.ts
+* Description : This is the typescript file for Search Component, that has the functionality to search a 
+*               stock by symbol and display it.
+**/
+
 import { Component } from '@angular/core';
 import { Stock } from '../../Models/Stock';
 import { NavController } from 'ionic-angular';

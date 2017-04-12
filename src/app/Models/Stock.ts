@@ -1,3 +1,9 @@
+/**
+ * App: Stockr
+ * File: stock.ts
+ * Description: this page creates an instance of stock JSON object.
+ */
+
 export class Stock
 {
     public symbol: string;
