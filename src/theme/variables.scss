@@ -31,6 +31,11 @@ $colors: (
   dark:       #222
 );
 
+$background-color: #272B30;
+
+.ion-content {
+  background-color: $background-color;
+}
 
 // App iOS Variables
 // --------------------------------------------------
