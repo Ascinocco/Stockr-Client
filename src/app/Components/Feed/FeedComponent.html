@@ -33,7 +33,7 @@
               </ion-col>
               <ion-col>
                 <ion-row class="customPriceFont">
-                  {{ stock.askingPrice }}
+                  ${{ stock.askingPrice }}
                 </ion-row>
               </ion-col>
 
@@ -55,17 +55,17 @@
   <div *ngIf="displayStockList === false && displayStockDetails === true">
     <div>
       <h1 class="customHeader"> {{ currentStock.name }} ( {{ currentStock.symbol }} ) </h1>
-      <h2 class="customPriceFont">{{ currentStock.askingPrice }}</h2>
+      <h2 class="customPriceFont">${{ currentStock.askingPrice }}</h2>
     </div>
     <div class="customFeedList">
       <ion-card padding>
         <ion-col>
           <ion-list>
             <ion-item>
-              Today's Highest Bid : {{ currentStock.todaysHighestBid }}
+              Today's Highest Bid : ${{ currentStock.todaysHighestBid }}
             </ion-item>
             <ion-item>
-              Today's Lowest Bid : {{ currentStock.todaysLowestBid }}
+              Today's Lowest Bid : ${{ currentStock.todaysLowestBid }}
             </ion-item>
           </ion-list>
 
@@ -83,10 +83,10 @@
 
           <ion-list>
             <ion-item>
-              This Week's Highest Price : {{ currentStock.thisWeeksHighestPrice }}
+              This Week's Highest Price : ${{ currentStock.thisWeeksHighestPrice }}
             </ion-item>
             <ion-item>
-              This Week's Lowest Price : {{ currentStock.thisWeeksLowestPrice }}
+              This Week's Lowest Price : ${{ currentStock.thisWeeksLowestPrice }}
             </ion-item>
           </ion-list>
 
@@ -101,19 +101,19 @@
 
           <ion-list>
             <ion-item>
-              Change From This Week's High In Percent : {{ currentStock.changeFromThisWeeksHighInPercent }}
+              Change From This Week's High In Percent :  {{ currentStock.changeFromThisWeeksHighInPercent }}
             </ion-item>
             <ion-item>
-              Change From This week's High In Decimal : {{ currentStock.changeFromThisWeeksHighInDecimal }}
+              Change From This week's High In Decimal :  {{ currentStock.changeFromThisWeeksHighInDecimal }}
             </ion-item>
           </ion-list>
 
           <ion-list>
             <ion-item>
-              Change From This Week's Low In Percent : {{ currentStock.changeFromThisWeeksLowInPercent }}
+              Change From This Week's Low In Percent :  {{ currentStock.changeFromThisWeeksLowInPercent }}
             </ion-item>
             <ion-item>
-              Change From This week's Low In Decimal : {{ currentStock.changeFromThisWeeksLowInDecimal }}
+              Change From This week's Low In Decimal :  {{ currentStock.changeFromThisWeeksLowInDecimal }}
             </ion-item>
           </ion-list>
         </ion-col>
