@@ -1,3 +1,10 @@
+/**
+* App : $tockR
+* File Name: SettingsComponent.ts
+* Description : This is the typescript file for Settings Component, that has update
+*                and delete functionality for the current logged in user
+**/
+
 import { User } from '../../Models/User';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';

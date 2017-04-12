@@ -1,3 +1,10 @@
+/**
+* App : $tockR
+* File Name: FeedComponent.ts
+* Description : This is the typescript file for Feed Component, has the functionality to get 
+*               stock feed from the StockService and display it.
+**/
+
 import { Component } from '@angular/core';
 import { Stock } from '../../Models/Stock';
 import { NavController } from 'ionic-angular';

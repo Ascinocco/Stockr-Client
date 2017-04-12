@@ -1,3 +1,8 @@
+/**
+ * App: Stockr
+ * File: Routes.ts
+ * Description: this page does all the routing for the app components/pages.
+ */
 import { FeedComponent } from '../Components/Feed/FeedComponent';
 import { AuthComponent } from '../Components/Auth/AuthComponent';
 import { SearchComponent } from '../Components/Search/SearchComponent';
