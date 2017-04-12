@@ -10,11 +10,15 @@
 <ion-content padding>
 
   <ion-list *ngIf="errorList.length > 0">
-    <ion-item *ngFor="let error of errorList" color="danger">
-      {{ error }}
-    </ion-item>
+    <ion-item *ngFor="let error of errorList" color="danger"> {{ error }} </ion-item>
   </ion-list>
 
+  <ion-list padding *ngIf="messageList.length > 0">
+    <ion-item *ngFor="let message of messageList" color="danger">
+      <ion-icon name="information-circle"> {{ message }} </ion-icon>
+    </ion-item>
+  </ion-list>
+  <!-- Feed List -->
   <ion-list>
     <div *ngIf="feedList.length > 0 && displayStockList === true && displayStockDetails === false">
       <h1 class="customHeader">My Watch List </h1>
@@ -51,7 +55,7 @@
       </div>
     </div>
   </ion-list>
-  <!-- <View details section -->
+  <!-- View details section -->
   <div *ngIf="displayStockList === false && displayStockDetails === true">
     <div>
       <h1 class="customHeader"> {{ currentStock.name }} ( {{ currentStock.symbol }} ) </h1>
@@ -101,19 +105,19 @@
 
           <ion-list>
             <ion-item>
-              Change From This Week's High In Percent :  {{ currentStock.changeFromThisWeeksHighInPercent }}
+              Change From This Week's High In Percent : {{ currentStock.changeFromThisWeeksHighInPercent }}
             </ion-item>
             <ion-item>
-              Change From This week's High In Decimal :  {{ currentStock.changeFromThisWeeksHighInDecimal }}
+              Change From This week's High In Decimal : {{ currentStock.changeFromThisWeeksHighInDecimal }}
             </ion-item>
           </ion-list>
 
           <ion-list>
             <ion-item>
-              Change From This Week's Low In Percent :  {{ currentStock.changeFromThisWeeksLowInPercent }}
+              Change From This Week's Low In Percent : {{ currentStock.changeFromThisWeeksLowInPercent }}
             </ion-item>
             <ion-item>
-              Change From This week's Low In Decimal :  {{ currentStock.changeFromThisWeeksLowInDecimal }}
+              Change From This week's Low In Decimal : {{ currentStock.changeFromThisWeeksLowInDecimal }}
             </ion-item>
           </ion-list>
         </ion-col>
@@ -123,5 +127,4 @@
       </div>
     </div>
   </div>
-
 </ion-content>

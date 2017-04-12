@@ -8,44 +8,116 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Search Stocks</h3>
-  <ion-row>
-    <ion-input type="text" placeholder="Type Stock Symbol Here" [(ngModel)]="symbol"></ion-input>
-    <button ion-button class="customButton" (click)="search()"> <ion-icon name="search"> </ion-icon></button>
-  </ion-row>
-  <ion-list *ngIf="errorList.length > 0">
-    <ion-item *ngFor="let error of searchErrors"> {{ error }} </ion-item>
-  </ion-list>
-
-  <ion-list *ngIf="messages.length > 0">
-  <ion-item *ngFor="let message of messages"> {{ message }} </ion-item>
-  </ion-list>
-  <!-- search results display -->
-  <ion-row *ngIf="stockResult">
-    <ion-label> {{stockResult.symbol}} </ion-label>
-    <ion-label> {{stockResult.name}} </ion-label>
-    <ion-label> {{stockResult.askingPrice}} </ion-label>
-    <button ion-button color="default" outline round> 
-  <ion-icon name="information-circle" (click)="displayDetails()"> Details</ion-icon> 
+  <h1 class="customHeader">Search Stocks</h1>
+  <ion-card padding>
+    <!-- Search Bar -->
+    <ion-row>
+      <ion-input type="text" placeholder="Type Stock Symbol Here" [(ngModel)]="symbol"></ion-input>
+      <button ion-button class="customButton" (click)="search()"> <ion-icon name="search"> </ion-icon></button>
+    </ion-row>
+    <ion-list padding *ngIf="errorList.length > 0">
+      <ion-item color="danger" *ngFor="let error of searchErrors"> {{ error }} </ion-item>
+    </ion-list>
+    <!-- Search Result -->
+    <ion-list padding *ngIf="messages.length > 0">
+      <ion-item color="secondary" *ngFor="let message of messages">
+        <ion-icon name="information-circle"> {{ message }} </ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-card-content>
+      <div *ngIf="stockResult">
+        <ion-row>
+          <ion-col>
+            <ion-row class="customBigFont">
+              {{ stockResult.symbol }}
+            </ion-row>
+            <ion-row>
+              {{ stockResult.name }}
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row class="customPriceFont">
+              ${{ stockResult.askingPrice }}
+            </ion-row>
+          </ion-col>
+          <ion-row class="buttonRow">
+            <ion-col>
+              <button ion-button color="primary" (click)="displayDetails()"> 
+  <ion-icon name="information-circle"> Details</ion-icon> 
   </button>
-    <button ion-button class="customButton" (click)="add()"><ion-icon name="add-circle"> WATCHLIST</ion-icon></button>
-  </ion-row>
-  <ion-row *ngIf="showDetails">
-    <ion-label> {{ stockResult.symbol }} </ion-label>
-    <ion-label> {{ stockResult.name }} </ion-label>
-    <ion-label> {{ stockResult.askingPrice }} </ion-label>
-    <ion-label> {{ stockResult.todaysHighestBid }} </ion-label>
-    <ion-label> {{ stockResult.todaysLowestBid }} </ion-label>
-    <ion-label> {{ stockResult.changeInPercent }} </ion-label>
-    <ion-label> {{ stockResult.lastTrade }} </ion-label>
-    <ion-label> {{ stockResult.thisWeeksHighestPrice }} </ion-label>
-    <ion-label> {{ stockResult.thisWeeksLowestPrice }} </ion-label>
-    <ion-label> {{ stockResult.earningsPerShare }} </ion-label>
-    <ion-label> {{ stockResult.weeksRange }} </ion-label>
-    <ion-label> {{ stockResult.changeFromThisWeeksHighInPercent }} </ion-label>
-    <ion-label> {{ stockResult.changeFromThisWeeksHighInDecimal }} </ion-label>
-    <ion-label> {{ stockResult.changeFromThisWeeksLowInPercent }} </ion-label>
-    <ion-label> {{ stockResult.changeFromThisWeeksLowInDecimal }} </ion-label>
-    <button ion-button class="customButton" (click)="hideDetails() "> HIDE </button>
-  </ion-row>
+            </ion-col>
+            <ion-col>
+              <button ion-button color="secondary" (click)="add(); stockResult=false"><ion-icon name="add-circle"> Feeds </ion-icon></button>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </div>
+      <!-- View details section -->
+      <div *ngIf="showDetails">
+        <ion-card>
+          <ion-col>
+            <ion-list>
+              <ion-item>
+                Today's Highest Bid : ${{ stockResult.todaysHighestBid }}
+              </ion-item>
+              <ion-item>
+                Today's Lowest Bid : ${{ stockResult.todaysLowestBid }}
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+              <ion-item>
+                Change In Percent : {{ stockResult.changeInPercent }}
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+              <ion-item>
+                Last Trade : {{ stockResult.lastTrade }}
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+              <ion-item>
+                This Week's Highest Price : ${{ stockResult.thisWeeksHighestPrice }}
+              </ion-item>
+              <ion-item>
+                This Week's Lowest Price : ${{ stockResult.thisWeeksLowestPrice }}
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+              <ion-item>
+                Earnings Per Share : {{ stockResult.earningsPerShare }}
+              </ion-item>
+              <ion-item>
+                Week's Range : {{ stockResult.weeksRange }}
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+              <ion-item>
+                Change From This Week's High In Percent : {{ stockResult.changeFromThisWeeksHighInPercent }}
+              </ion-item>
+              <ion-item>
+                Change From This week's High In Decimal : {{ stockResult.changeFromThisWeeksHighInDecimal }}
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+              <ion-item>
+                Change From This Week's Low In Percent : {{ stockResult.changeFromThisWeeksLowInPercent }}
+              </ion-item>
+              <ion-item>
+                Change From This week's Low In Decimal : {{ stockResult.changeFromThisWeeksLowInDecimal }}
+              </ion-item>
+            </ion-list>
+            <div>
+              <button ion-button (click)="hideDetails()">Hide</button>
+            </div>
+          </ion-col>
+        </ion-card>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
