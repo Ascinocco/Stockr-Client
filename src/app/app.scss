@@ -13,10 +13,29 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+/** Custom Styles Used Throughout the App **/
+
+
 /** Custom Buttons **/
 
 .customButton {
-  background-color: #0c12b5;
+  background-color: #000099;
   color: white;
   text-align: center;
+  margin-right: 5px;
 }
+
+.button {
+  height: 42px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
+
+
+.customHeader {
+  color: #1aa3ff;
+  font-size: 35px;
+  text-align: center;
+  height: 48px;
+}
+

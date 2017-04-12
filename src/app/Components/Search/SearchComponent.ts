@@ -9,7 +9,7 @@ import { StockService } from '../../Services/StockService';
 })
 export class SearchComponent 
 {
-  public navCtrl: NavController;
+  public  navCtrl: NavController;
   private stockService: StockService;
 
   public symbol: string;
@@ -57,6 +57,8 @@ export class SearchComponent
       .subscribe((res) => {
         if (res.success) {
          this.messages.push(res.msg);
+         this.clearSearchBar();
+         this.hideDetails();
         }
         else {
         this.errorList.push(res.msg);

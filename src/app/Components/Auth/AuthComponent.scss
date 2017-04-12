@@ -1,3 +1,5 @@
+/** Main Page Container**/
+
 .mainContainer {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -20,9 +22,12 @@
 }
 
 #landingPageTitle {
-  font-weight: 700;
+  font-weight: bolder;
+  color: #1aa3ff;
   text-transform: uppercase;
-  font-size: 60px;
+  font-size: 5em;
+  text-shadow: 1px 1px 1px whitesmoke;
+  letter-spacing: 2px;
 }
 
 #headerInfo,
@@ -33,15 +38,7 @@
 }
 
 
-/** Custom Buttons **/
-
-.customButton {
-  background-color: #0c12b5;
-  color: white;
-  text-align: center;
-}
-
-/** Form Container **/
+/** Form Styles **/
 
 .formContainer {
   border: 1px solid #0c0d0e;
