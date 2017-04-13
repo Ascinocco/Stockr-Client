@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title style="text-align: right;">$tockR Watch List </ion-title>
+    <ion-title>Feed</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -21,7 +21,6 @@
   <!-- Feed List -->
   <ion-list>
     <div *ngIf="feedList.length > 0 && displayStockList === true && displayStockDetails === false">
-      <h1 class="customHeader">My Watch List </h1>
       <div *ngFor="let stock of feedList">
         <ion-card>
           <ion-card-content class="customFeedList">
@@ -71,60 +70,36 @@
             <ion-item>
               Today's Lowest Bid : ${{ currentStock.todaysLowestBid }}
             </ion-item>
-          </ion-list>
 
-          <ion-list>
             <ion-item>
               Change In Percent : {{ currentStock.changeInPercent }}
             </ion-item>
-          </ion-list>
 
-          <ion-list>
             <ion-item>
               Last Trade : {{ currentStock.lastTrade }}
             </ion-item>
-          </ion-list>
 
-          <ion-list>
             <ion-item>
               This Week's Highest Price : ${{ currentStock.thisWeeksHighestPrice }}
             </ion-item>
             <ion-item>
               This Week's Lowest Price : ${{ currentStock.thisWeeksLowestPrice }}
             </ion-item>
-          </ion-list>
 
-          <ion-list>
             <ion-item>
-              Earnings Per Share : {{ currentStock.earningsPerShare }}
+              Earnings Per Share : ${{ currentStock.earningsPerShare }}
             </ion-item>
             <ion-item>
-              Week's Range : {{ currentStock.weeksRange }}
-            </ion-item>
-          </ion-list>
-
-          <ion-list>
-            <ion-item>
-              Change From This Week's High In Percent : {{ currentStock.changeFromThisWeeksHighInPercent }}
-            </ion-item>
-            <ion-item>
-              Change From This week's High In Decimal : {{ currentStock.changeFromThisWeeksHighInDecimal }}
-            </ion-item>
-          </ion-list>
-
-          <ion-list>
-            <ion-item>
-              Change From This Week's Low In Percent : {{ currentStock.changeFromThisWeeksLowInPercent }}
-            </ion-item>
-            <ion-item>
-              Change From This week's Low In Decimal : {{ currentStock.changeFromThisWeeksLowInDecimal }}
+              Week's Range : ${{ currentStock.weeksRange }}
             </ion-item>
           </ion-list>
         </ion-col>
       </ion-card>
-      <div>
-        <button ion-button (click)="hideDetails()">Back To Feed</button>
-      </div>
+      <ion-col>
+        <ion-row>
+          <button ion-button full (click)="hideDetails()"><ion-icon name="arrow-back"></ion-icon></button>
+        </ion-row>
+      </ion-col>
     </div>
   </div>
 </ion-content>
