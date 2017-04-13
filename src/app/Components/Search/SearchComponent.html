@@ -3,11 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title style="text-align: right;">Stockr</ion-title>
+    <ion-title>Search </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+<<<<<<< HEAD
   <div>
     <h1 class="customHeader"> Search Stocks</h1>
   </div>
@@ -61,3 +62,92 @@
     <button ion-button class="customButton" (click)="hideDetails() "> HIDE </button>
   </ion-row>
 </ion-content> -->
+=======
+
+  <ion-list padding *ngIf="errorList.length > 0">
+      <ion-item color="danger" *ngFor="let error of searchErrors"> {{ error }} </ion-item>
+    </ion-list>
+    <!-- Search Result -->
+    <ion-list padding *ngIf="messages.length > 0">
+      <ion-item color="secondary" *ngFor="let message of messages">
+        <ion-icon name="information-circle"> {{ message }} </ion-icon>
+      </ion-item>
+    </ion-list>
+
+  <ion-card padding>
+    <ion-row>
+      <ion-input type="text" placeholder="Type Stock Symbol Here" [(ngModel)]="symbol"></ion-input>
+      <button ion-button color="primary" (click)="search()"> <ion-icon name="search"></ion-icon></button>
+    </ion-row>
+  </ion-card>
+
+  <!-- This is deeply upsetting, however, there is no time to fix all of this -->
+  <ion-card padding *ngIf="stockResult">
+    <ion-card-content>
+      <div>
+        <ion-row>
+          <ion-col>
+            <ion-row class="customBigFont">
+              {{ stockResult.symbol }}
+            </ion-row>
+            <ion-row>
+              {{ stockResult.name }}
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row class="customPriceFont">
+              ${{ stockResult.askingPrice }}
+            </ion-row>
+          </ion-col>
+          <ion-row class="buttonRow">
+            <ion-col>
+              <button ion-button color="primary" small (click)="displayDetails()"> 
+                <ion-icon name="information-circle"></ion-icon> 
+            </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button color="secondary" small (click)="add(); stockResult=false"><ion-icon name="add-circle"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </div>
+      <!-- View details section -->
+        <ion-card-content *ngIf="showDetails">
+          <ion-col>
+            <ion-list>
+              <ion-item>
+                Today's Highest Bid : ${{ stockResult.todaysHighestBid }}
+              </ion-item>
+              <ion-item>
+                Today's Lowest Bid : ${{ stockResult.todaysLowestBid }}
+              </ion-item>
+
+              <ion-item>
+                Change In Percent : {{ stockResult.changeInPercent }}
+              </ion-item>
+
+              <ion-item>
+                Last Trade : {{ stockResult.lastTrade }}
+              </ion-item>
+
+              <ion-item>
+                This Week's Highest Price : ${{ stockResult.thisWeeksHighestPrice }}
+              </ion-item>
+              <ion-item>
+                This Week's Lowest Price : ${{ stockResult.thisWeeksLowestPrice }}
+              </ion-item>
+
+              <ion-item>
+                Earnings Per Share : {{ stockResult.earningsPerShare }}
+              </ion-item>
+              <ion-item>
+                Week's Range : {{ stockResult.weeksRange }}
+              </ion-item>
+            </ion-list>
+          </ion-col>
+            <button ion-button small full (click)="hideDetails()"><ion-icon name="arrow-back"></ion-icon></button>
+        </ion-card-content>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+>>>>>>> master

@@ -1,16 +1,17 @@
-<ion-content>
-  <div class="mainContainer">
-    <ion-header>
-      <ion-navbar>
-        <button ion-button menuToggle>
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-      </ion-navbar>
-    </ion-header>
+  </ion-navbar>
+</ion-header>
 
+<ion-content>
+  <div class="mainContainer">
+<!-- Title -->
     <div class="header-content">
       <p id="headerInfo">Welcome to</p>
-      <h1 id="landingPageTitle">StockR</h1>
+      <h1 id="landingPageTitle">$tockR</h1>
       <button ion-button class="customButton" (click)="showSignInForm=true; showSignUpForm=false">Sign In</button>
       <button ion-button class="customButton" (click)="showSignUpForm=true; showSignInForm=false">Register</button>
     </div>
@@ -18,12 +19,11 @@
     <!-- Register template -->
     <div class="formWrapper" *ngIf="showSignUpForm">
       <ion-card>
-        <div class="formContainer">
-          <h2 id="formTitle"> Sign Up </h2>
+        <div class="formContainer" padding>
 
           <ion-list *ngIf="signUpErrors.length > 0">
-            <ion-item *ngFor="let error of signUpErrors">
-              <ion-label color="danger"> {{ error }} </ion-label>
+            <ion-item *ngFor="let error of signUpErrors" color="danger">
+              <ion-label> {{ error }} </ion-label>
             </ion-item>
           </ion-list>
 
@@ -43,8 +43,13 @@
           <ion-input type="password" class="inputBox" [(ngModel)]="signUpConfirmPassword"></ion-input>
 
           <ion-row padding-top>
+<<<<<<< HEAD
           <button ion-button class="customButton" (click)="signUp()"> Register </button>
           <button ion-button color="danger" (click)="showSignUpForm=false"> Cancel </button>
+=======
+            <button ion-button class="customButton" (click)="signUp()"> Register </button>
+            <button ion-button color="danger" (click)="showSignUpForm=false"> Cancel </button>
+>>>>>>> master
           </ion-row>
         </div>
       </ion-card>
@@ -53,11 +58,9 @@
     <!-- Login template -->
     <div class="formWrapper" *ngIf="showSignInForm">
       <ion-card>
-        <div class="formContainer">
-          <h2 id="formTitle">Sign In </h2>
-
+        <div class="formContainer" padding>
           <ion-list *ngIf="signInErrors.length > 0">
-            <ion-item *ngFor="let error of signInErrors">
+            <ion-item *ngFor="let error of signInErrors" color="danger">
               <ion-label> {{ error }} </ion-label>
             </ion-item>
           </ion-list>
@@ -77,6 +80,7 @@
       </ion-card>
     </div>
     <!-- end of formWrapper -->
+<<<<<<< HEAD
   </div>
   <!-- end of mainContainer -->
 </ion-content>
@@ -159,3 +163,8 @@
     <button ion-button outline block (click)="signUp()">Sign Up</button>
   </div>
 </ion-content> -->
+=======
+  </div>
+  <!-- end of mainContainer -->
+</ion-content>
+>>>>>>> master

@@ -3,48 +3,47 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title style="text-align: right;">Stockr</ion-title>
+    <ion-title style="text-align: right;">$tockR</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-  <ion-card>
-    <ion-card-header>
-      <h3>Account Info</h3>
-    </ion-card-header>
-  </ion-card>
-
-    <h1>Account Info</h1>
-
-    <ion-list *ngIf="updateErrors.length > 0">
-      <ion-item *ngFor="let error of updateErrors">
-        <ion-label> {{ error }} </ion-label>
-      </ion-item>
-    </ion-list>
-
-    <ion-list *ngIf="updateMessages.length > 0">
-      <ion-item *ngFor="let message of updateMessages">
-        <ion-label> {{ message }} </ion-label>
-      </ion-item>
-    </ion-list>
-
-    <ion-list>
-        <ion-item>
-            <ion-label floating>First Name</ion-label>
-            <ion-input type="text" [(ngModel)]="firstName"></ion-input>
+  <div>
+    <h1 class="customHeader">Account Info</h1>
+  </div>
+  <div class="formContainer">
+    <ion-row>
+      <h1 class="customTitle" padding> Edit Account Info</h1>
+    </ion-row>
+    <div padding-left>
+      <ion-list padding *ngIf="updateErrors.length > 0">
+        <ion-item *ngFor="let error of updateErrors" color="danger">
+          <ion-label> {{ error }} </ion-label>
         </ion-item>
-        <ion-item>
-            <ion-label floating>Last Name</ion-label>
-            <ion-input type="text" [(ngModel)]="lastName"></ion-input>
+      </ion-list>
+      <ion-list padding *ngIf="updateMessages.length > 0">
+        <ion-item *ngFor="let message of updateMessages" color="primary">
+          <ion-label> {{ message }} </ion-label>
         </ion-item>
-        <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input type="email" [(ngModel)]="email"></ion-input>
-        </ion-item>
-    </ion-list>
-    <button ion-button outline block (click)="update();">Update</button>
-    <br>
-    <br>
-    <button ion-button outline block (click)="deleteAccount();" color="danger">Delete Account</button>
+      </ion-list>
+
+      <!-- form -->
+
+      <ion-label class="customLabel">First Name </ion-label>
+      <ion-input type="text" class="inputBox" [(ngModel)]="firstName"></ion-input>
+
+      <ion-label class="customLabel">Last Name</ion-label>
+      <ion-input type="text" class="inputBox" [(ngModel)]="lastName"></ion-input>
+
+      <ion-label class="customLabel">Email</ion-label>
+      <ion-input type="email" class="inputBox" [(ngModel)]="email"></ion-input>
+
+      <ion-col>
+        <ion-row padding-top>
+          <button ion-button  color="primary" small (click)="update();">Update Account</button>
+          <button ion-button color="danger" small (click)="deleteAccount();">Delete Account</button>
+        </ion-row>
+      </ion-col>
+    </div>
+  </div>
 </ion-content>

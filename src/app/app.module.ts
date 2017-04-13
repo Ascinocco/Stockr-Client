@@ -1,3 +1,8 @@
+/**
+* App : $tockR
+* File Name: app.module.ts
+* Description : This is the typescript file for app module, that holds all the modules used in the app.
+**/
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { LocalStorageModule } from 'angular-2-local-storage';

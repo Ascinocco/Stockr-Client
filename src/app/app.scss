@@ -1,3 +1,9 @@
+/**
+*App: StockR
+*File: app.scss
+*Descripition: Sass file to has custom styling shared throughout the app.
+*/
+
 // http://ionicframework.com/docs/v2/theming/
 // App Global Sass
 // --------------------------------------------------
@@ -13,14 +19,18 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+/** Custom Styles Used Throughout the App **/
+
+
 /** Custom Buttons **/
 
 .customButton {
-  background-color: #0c12b5;
+  background-color: #000099;
   color: white;
   text-align: center;
 }
 
+<<<<<<< HEAD
 /** Custom Text **/
 .customHeader {
   color: #1aa3ff;
@@ -28,3 +38,10 @@
   text-align: center;
   height: 48px;
 }
+=======
+.customHeader {
+  color: #1aa3ff;
+  text-align: center;
+}
+
+>>>>>>> master

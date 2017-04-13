@@ -1,3 +1,10 @@
+/**
+* App : $tockR
+* File Name: AuthComponent.ts
+* Description : This is the typescript file for Auth Component, has the functionality to sign in 
+*               sign up through AuthService.
+**/
+
 import { Component } from '@angular/core';
 import { AuthService } from '../../Services/AuthService';
 import { NavController } from 'ionic-angular';
@@ -52,6 +59,7 @@ export class AuthComponent
       });
   }
 
+
   public signUp(): void
   {
     this.clearErrors();
@@ -75,6 +83,7 @@ export class AuthComponent
         }
       });
   }
+
 
   private clearForms(): void
   {

@@ -1,3 +1,11 @@
+/**
+* App : $tockR
+* File Name: app.component.ts
+* Description : This is the typescript file for app Component, initializes App, sets the landing page
+*             and has sign out functionality
+* 
+**/
+
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';

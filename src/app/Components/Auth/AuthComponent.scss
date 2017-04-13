@@ -1,8 +1,16 @@
+/**
+* App : $tockR
+* File Name: AuthComponent.scss
+* Description : This is the custom stylesheet for Auth Component.
+**/
+
+
+/** Main Page Container**/
+
 .mainContainer {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  background-color: #272B30;
 }
 
 
@@ -16,74 +24,48 @@
 /** Header Customer Style **/
 
 .header-content {
-  position: relative;
-  width: 100%;
   text-align: center;
   color: white;
-  padding: 100px 15px 50px;
-  width: 100%;
 }
 
 #landingPageTitle {
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 60px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 2px 2px 3px #1aa3ff;
+  letter-spacing: 2px;
 }
 
 #headerInfo,
 #formTitle {
-  font-weight: 300;
+  font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 15px;
 }
 
+<<<<<<< HEAD
 
 /** Custom Buttons **/
+=======
+>>>>>>> master
 
-.customButton {
-  background-color: #0c12b5;
-  color: white;
-  text-align: center;
-}
-
-
-/** Form Container **/
-
-.formWrapper {
-  width: 60%;
-  right: 0px;
-  min-height: 560px;
-  margin: 0px auto;
-  width: 500px;
-  position: relative;
-}
+/** Form Styles **/
 
 .formContainer {
-  position: absolute;
-  top: 0px;
-  width: 88%;
-  padding: 19px;
-  margin-bottom: 20px;
   border: 1px solid #0c0d0e;
   border-radius: 4px;
   background-color: #1c1e22;
 }
 
 #formTitle {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin-bottom: 20px;
-  font-size: 35px;
-  line-height: inherit;
   color: lightgray;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .inputBox {
+<<<<<<< HEAD
+=======
+  font-size: 16px;
+>>>>>>> master
   color: black;
   background-color: #ffffff;
   border: 1px solid #000000;
