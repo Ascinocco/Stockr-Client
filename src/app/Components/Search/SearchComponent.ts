@@ -41,6 +41,7 @@ export class SearchComponent
   public search(): any
   {
     this.clearErrors();
+    this.clearMessages();
 
     this.stockService.search(this.symbol)
       .subscribe((res) => {
@@ -54,6 +55,7 @@ export class SearchComponent
         console.log('Error Found in searching', this.symbol);
         }
       });
+      this.clearSearchBar();
   }
 
   public add(): any
