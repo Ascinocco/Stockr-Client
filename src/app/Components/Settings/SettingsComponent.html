@@ -9,13 +9,11 @@
 
 <ion-content padding>
   <div>
-    <h1 class="customHeader">Account Info</h1>
+    <h1 class="customHeader">Account Settings </h1>
   </div>
   <div class="formContainer">
-    <ion-row>
-      <h1 class="customTitle" padding> Edit Account Info</h1>
-    </ion-row>
-    <div padding-left>
+    <div padding>
+
       <ion-list padding *ngIf="updateErrors.length > 0">
         <ion-item *ngFor="let error of updateErrors" color="danger">
           <ion-label> {{ error }} </ion-label>
@@ -29,20 +27,20 @@
 
       <!-- form -->
 
-      <ion-label class="customLabel">First Name </ion-label>
+      <ion-label color="secondary" class="customLabel">FIRST NAME </ion-label>
       <ion-input type="text" class="inputBox" [(ngModel)]="firstName"></ion-input>
 
-      <ion-label class="customLabel">Last Name</ion-label>
+      <ion-label color="secondary" class="customLabel">LAST NAME</ion-label>
       <ion-input type="text" class="inputBox" [(ngModel)]="lastName"></ion-input>
 
-      <ion-label class="customLabel">Email</ion-label>
+      <ion-label color="secondary" class="customLabel">EMAIL </ion-label>
       <ion-input type="email" class="inputBox" [(ngModel)]="email"></ion-input>
 
       <ion-col>
-        <ion-row padding-top>
-          <button ion-button  color="primary" small (click)="update();">Update Account</button>
-          <button ion-button color="danger" small (click)="deleteAccount();">Delete Account</button>
-        </ion-row>
+
+        <button ion-button full color="primary" small (click)="update();">Update</button>
+        <button ion-button full color="danger" small (click)="deleteAccount();">Delete</button>
+
       </ion-col>
     </div>
   </div>
